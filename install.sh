@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
 
@@ -12,7 +12,7 @@ if  [ ! -e $HOME/.config/nvim ]; then
     ln -sd $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
 fi
 
-packages=("fzf" "ripgrep" "bat" "neovim")
+packages=("zsh" "fzf" "ripgrep" "bat" "neovim")
 
 echo "Installing apt packages"
 for package in "${packages[@]}"; do
@@ -52,3 +52,9 @@ else
     echo "lazygit is already installed"
 fi
 
+# change default shell to zsh
+if [ "$SHELL" != "/usr/bin/zsh" ]; then
+    echo "changing shell to zsh"
+    sudo chsh -s $(which zsh)
+    echo "success! restart terminal to take effect."
+fi
