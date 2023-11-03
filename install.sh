@@ -6,11 +6,15 @@ DOTFILES=$HOME/.dotfiles
 echo "Creating sym links"
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc 2>/dev/null
 ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf 2>/dev/null
-ln -sd $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
+ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig 2>/dev/null
 
-packages=("fzf" "ripgrep" "bat")
+if  [ ! -e $HOME/.config/nvim ]; then
+    ln -sd $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
+fi
 
-echo "Installing packages"
+packages=("fzf" "ripgrep" "bat" "neovim")
+
+echo "Installing apt packages"
 for package in "${packages[@]}"; do
     if dpkg -l | grep -q "$package"; then
         echo "$package is already installed"
