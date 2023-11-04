@@ -52,15 +52,7 @@ return {
 			},
 		})
 
-		-- set keymaps
-		local keymap = vim.keymap -- for conciseness
+		vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
 
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-
-		local wk = require("which-key")
-
-		wk.register({ e = { name = "nvim-tree" } }, { prefix = "<leader>" })
 	end,
 }

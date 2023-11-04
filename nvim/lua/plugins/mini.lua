@@ -45,7 +45,7 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"<leader>w",
+				"<leader><BS>",
 				function()
 					local bd = require("mini.bufremove").delete
 					if vim.bo.modified then
@@ -64,7 +64,7 @@ return {
 				desc = "Delete Buffer",
 			},
 			{
-				"<leader>W",
+				"<leader><S-BS>",
 				function()
 					require("mini.bufremove").delete(0, true)
 				end,

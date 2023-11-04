@@ -13,8 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- subfiles
+require("options") -- need to source this first as it maps leader key
 require("keymappings")
-require("options")
 
 -- lazy modules
 require("lazy").setup({
