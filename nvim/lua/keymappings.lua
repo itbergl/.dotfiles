@@ -33,7 +33,7 @@ set("n", "<C-RIGHT>", ":vertical resize +2<CR>")
 set("n", "<ESC>", "<CMD>noh<CR>", { noremap = true, silent = true })
 
 -- jump to next character (useful for closing pairs)
-set("i", "<C-l>", "<C-o>a")
+set("i", "<C-l>", "<Right>")
 
 -- jumping between quickfix items
 set("n", "]q", "<CMD>cnext<CR>", { desc = "Next Quickfix" })

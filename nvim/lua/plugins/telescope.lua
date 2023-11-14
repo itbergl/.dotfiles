@@ -46,7 +46,6 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find file" })
-		keymap.set("n", "<leader>F", "<cmd>Telescope find_files<cr>", { desc = "Find file" })
 		keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Find oldfiles" })
         keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find grep" })
 		keymap.set("n", "<leader>fw", "<cmd>Telescope buffers<cr>", { desc = "Find tab" })
@@ -57,14 +56,16 @@ return {
 			require("telescope.builtin").current_buffer_fuzzy_find,
 			{ desc = "Live buffer search" }
 		)
-		keymap.set("n", "<leader>fq", function()
+		
+        keymap.set("n", "<leader>fq", function()
 			vim.cmd(":cclose")
 			require("telescope.builtin").quickfix()
 		end, { desc = "Open Quickfix in Telescope" })
 
 		keymap.set("n", "<leader>f;", require("telescope.builtin").resume, { desc = "Resume" })
-		keymap.set("n", "<leader>fp", require("telescope.builtin").builtin, { desc = "View Builtin Pickers" })
-		keymap.set("n", "<leader>fj", require("telescope.builtin").jumplist, { desc = "View Jumplist" })
+		keymap.set("n", "<leader>fp", require("telescope.builtin").builtin, { desc = "Search Builtin Pickers" })
+		keymap.set("n", "<leader>fj", require("telescope.builtin").jumplist, { desc = "Search Jumplist" })
+		keymap.set("n", "<leader>:", require("telescope.builtin").commands, { desc = "Search Commands" })
 
 		local wk = require("which-key")
 

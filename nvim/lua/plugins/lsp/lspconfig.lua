@@ -35,7 +35,7 @@ return {
 			keymap.set("n", "<leader>fi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
 			opts.desc = "Show type definitions"
-			keymap.set("n", "<leader>ft", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+			keymap.set("n", "<leader>fy", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
 			opts.desc = "See available code actions"
 			keymap.set({ "n", "v" }, "<leader>fa", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -79,6 +79,11 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+        lspconfig["csharp_ls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
 
 		-- configure html server
 		lspconfig["html"].setup({

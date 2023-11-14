@@ -12,6 +12,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+                csharp = { "prettier" },
 				python = { "isort", "black" },
 			},
 		})
