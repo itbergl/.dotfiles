@@ -9,7 +9,8 @@ ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf 2>/dev/null
 ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig 2>/dev/null
 
 if  [ ! -e $HOME/.config/nvim ]; then
-    ln -sd $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
+    mkdir -p $HOME/.config
+    ln -s $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
 fi
 
 packages=("zsh" "fzf" "ripgrep" "bat" "neovim")
