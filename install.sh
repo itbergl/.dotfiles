@@ -21,7 +21,7 @@ for package in "${packages[@]}"; do
         echo "$package is already installed"
     else
         echo "installing $package"
-        sudo apt-get install -y "$package"
+        apt-get install -y "$package"
         if [ $? -eq 0 ]; then
             echo "$package has been successfully installed"
         else 
@@ -35,7 +35,7 @@ if ! dpkg -l | grep -q exa; then
     echo "installing exa"
     exa_package_name="exa_0.9.0-4_amd64.deb"
     wget -c http://old-releases.ubuntu.com/ubuntu/pool/universe/r/rust-exa/$exa_package_name
-    sudo apt-get install ./$exa_package_name
+    apt-get install ./$exa_package_name
     rm $exa_package_name
 else 
     echo "exa is already installed"
@@ -46,7 +46,7 @@ if ! [ -e /usr/local/bin/lazygit ]; then
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     tar xf lazygit.tar.gz lazygit
-    sudo install lazygit /usr/local/bin
+    install lazygit /usr/local/bin
     rm lazygit.tar.gz
     rm lazygit
 else 
@@ -56,6 +56,6 @@ fi
 # change default shell to zsh
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
     echo "changing shell to zsh"
-    sudo chsh -s $(which zsh)
+    chsh -s $(which zsh)
     echo "success! restart terminal to take effect."
 fi
