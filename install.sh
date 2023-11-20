@@ -13,7 +13,7 @@ if  [ ! -e $HOME/.config/nvim ]; then
     ln -s $DOTFILES/nvim $HOME/.config/nvim 2>/dev/null
 fi
 
-packages=("zsh" "fzf" "ripgrep" "bat" "neovim")
+packages=("zsh" "fzf" "ripgrep" "bat" "neovim", "tmux")
 
 echo "Installing apt packages"
 for package in "${packages[@]}"; do
@@ -52,6 +52,10 @@ if ! [ -e /usr/local/bin/lazygit ]; then
 else 
     echo "lazygit is already installed"
 fi
+
+echo "installing tpm"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "finished installing tpm"
 
 # change default shell to zsh
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
